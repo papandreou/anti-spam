@@ -1,0 +1,8 @@
+## From: https://www.sitepoint.com/fighting-recruiter-spam-with-php-proof-of-concept/
+
+Requirements:
+PHP7.x
+sudo apt-get install php7.0-imap
+sudo apt-get install composer
+composer require tedivm/fetch
+composer require swiftmailer/swiftmailer
