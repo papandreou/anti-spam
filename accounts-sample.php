@@ -9,7 +9,8 @@ $inboxes = [
         'imap' => 'imap.one.com',
         'prefix' => 'INBOX.',
         'folder' => 'autoreplied',
-        'starttls' => true
+        'starttls' => true,
+        'logfile' => '../logs/spam.log'
     ],
     'm@r10n.dk' => [
         'username' => 'test@hero.one',
@@ -20,7 +21,8 @@ $inboxes = [
         'imap' => 'imap.one.com',
         'prefix' => 'INBOX.',
         'folder' => 'autoreplied',
-        'starttls' => true
+        'starttls' => true,
+        'logfile' => '../logs/spam.log'
     ] /*,
     'primary@mydomain.com' => [
         'username' => 'someusername',
@@ -32,4 +34,3 @@ $inboxes = [
         'starttls' => true
     ] */
 ];
-
