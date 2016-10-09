@@ -7,50 +7,105 @@ use Fetch\Message;
 use Fetch\Server;
 
 $rules = [
+    
+        // From: 
     ['from' => '@explorerec\.com', 'points' => 100],
     ['from' => '@netvision\.net', 'points' => 100],
     ['from' => '@shitmail\.me', 'points' => 100],
-    ['contains' => 'finding IT opportunities', 'points' => 100],
+    ['from' => 'eachbuyer\.net', 'points' => 100],
+    
+    /* ['contains' => 'finding IT opportunities', 'points' => 100],
     ['contains' => 'PHP specialists?', 'points' => 80],
     ['contains' => 'startups?', 'points' => 10],
     ['contains' => 'saw your profile on GitHub', 'points' => 50],
     ['contains' => 'explore-group\.com', 'points' => 100],
-    ['contains' => 'new position', 'points' => 20],
+    
     ['contains' => 'urgent(ly)? need', 'points' => 30],
-    ['contains' => 'huge plus', 'points' => 15],
     ['contains' => 'full-stack developer', 'points' => 30],
     ['contains' => 'interviews?', 'points' => 20],
-    ['contains' => 'CV', 'points' => 60],
     ['contains' => 'skills', 'points' => 10],
-    ['contains' => 'candidates?', 'points' => 20],
-    ['contains' => 'Beneficial (offer|proposition)', 'points' => 100],
-    ['contains' => '(We offer.*|Open) vacancy', 'points' => 100],
-    ['contains' => 'part-time employment', 'points' => 100],
-    ['contains' => 'liderlig|knald', 'points' => 100],
-    ['contains' => 'Kærligheden øer lige om hjørnet, og vi kan maske hjælpe dig', 'points' => 100],
-    ['contains' => 'Hvem behøver nogen billeder af kendte, nar du har det her', 'points' => 100],
-    ['contains' => '(Er du)? klar til (kærlighed|at mode den eneste ene)?', 'points' => 100],
-    ['contains' => 'Cooperation with.*(company|firm)', 'points' => 100],
-    ['contains' => 'Begynd at chatte med en hottie NU', 'points' => 100],
-    ['contains' => 'We offer', 'points' => 30],
-    ['contains' => '\% off today', 'points' => 100],
-    ['contains' => 'Salary.*\$.*(day|week|month|year)?', 'points' => 100],
-    ['contains' => 'Klar til at mode den ENESTE ene', 'points' => 100],
-    ['contains' => 'Din naeste date venter pa dig', 'points' => 30],
-    ['contains' => 'Skal vi ikke modes', 'points' => 30],
-    ['contains' => 'Work with us', 'points' => 100],
-    ['contains' => 'Flexible schedule', 'points' => 40],
-    ['contains' => 'For CV \#', 'points' => 100],
-    ['contains' => 'sex', 'points' => 20],
-    ['contains' => 'Big.*\% Off', 'points' => 80],
-    ['contains' => 'Lønnen er på', 'points' => 80], // Why does this one not work? Does other æøå-rules work?
-    ['contains' => '\d+.?eur|dkk|dollars?', 'points' => 60],
-    //['contains' => 'stort internationalt firma', 'points' => 80],
+    ['contains' => 'candidates?', 'points' => 20], */
+    
+    // My rules:
+        // Words:
+    ['contains' => 'company|firma?', 'points' => 10],
+    ['contains' => '\$', 'points' => 10],
+    
+    ['contains' => '(?:\$|eur|euro|dollars?|usd|dkk).\d+(?:[,.]\d+)?', 'points' => 20], // Matches: $50.000 | $50000 | usd 50.000
+    ['contains' => '\d+(?:[,.]\d+)?(?:.*(?:million|trillion|billion)?(?:eur|dkk|dollars?|usd))', 'points' => 20], // Matches: 50000 dollar | 50.000 dollar | 680 Trillion dollars
+    ['contains' => 'incredible', 'points' => 20],
+    
+    ['contains' => 'part-time', 'points' => 30],
+    ['contains' => 'employment', 'points' => 30],
+    ['contains' => 'kærlighed(en)', 'points' => 30],
+    ['contains' => 'CV', 'points' => 30],
+    ['contains' => 'free|gratis', 'points' => 30],
+    ['contains' => 'premium', 'points' => 30],
+    ['contains' => 'scoret?', 'points' => 30],
+    ['contains' => 'urgent(ly)?', 'points' => 30],
+    
+    ['contains' => 'liderlig', 'points' => 40],
+    ['contains' => 'knald', 'points' => 40],
+    ['contains' => 'horny', 'points' => 40],
+    ['contains' => 'beneficial', 'points' => 40],
+    ['contains' => 'offer', 'points' => 40],
+    ['contains' => 'proposition', 'points' => 40],
+    ['contains' => 'salary', 'points' => 40],
+    ['contains' => 'income', 'points' => 40],
+    
+    ['contains' => 'revenues?', 'points' => 50],
+    ['contains' => 'vacanc(ies|y)', 'points' => 50],
+    ['contains' => 'chatte', 'points' => 50],
+    ['contains' => 'lottery', 'points' => 50],
+    ['contains' => 'award', 'points' => 50],
+    ['contains' => 'winning', 'points' => 50],
+    ['contains' => 'won', 'points' => 50],
+    
+    ['contains' => 'hot(tie)?', 'points' => 60],
+    ['contains' => 'sex', 'points' => 60],
+    ['contains' => 'profits?', 'points' => 60],
+        
+        // Phrases:
+    ['contains' => 'new position', 'points' => 20],
+    ['contains' => 'huge plus', 'points' => 20],
+    
+    ['contains' => 'venter pa dig', 'points' => 30],
+    
+    ['contains' => 'this is why', 'points' => 40],
+    
+    ['contains' => 'We offer', 'points' => 50],
+    ['contains' => '(per|\/).?(?:day|week|month|year)', 'points' => 50],
+    ['contains' => 'personal invitation', 'points' => 50],
+    ['contains' => 'you need', 'points' => 50],
+    
+    ['contains' => 'cooperation with', 'points' => 60],
+    ['contains' => 'Flexible schedule', 'points' => 60],
+    ['contains' => 'stort internationalt firma', 'points' => 60],
+    ['contains' => '100% free', 'points' => 60],
+    ['contains' => 'it actually works', 'points' => 60],
+    ['contains' => '% Off( today)?', 'points' => 60],
+    
+    ['contains' => 'Hi friend', 'points' => 70],
+    ['contains' => 'Lønnen er på', 'points' => 70],
+    
+    ['contains' => 'maske hjælpe', 'points' => 80],
+    ['contains' => 'naeste date', 'points' => 80],
+    ['contains' => 'Work with us', 'points' => 80],
+    ['contains' => 'jagt efter', 'points' => 80],
+    ['contains' => 'Alle far sig', 'points' => 80],
+
+        // Sentences:
+    ['contains' => 'Skal vi ikke modes', 'points' => 90],
+    ['contains' => 'nogen billeder af kendte', 'points' => 90],
+    ['contains' => 'mode den eneste ene', 'points' => 90],
+
 ];
 
 $whitelistRules = [
     ['contains' => '/sent via our-little-app/i'],
-    ['from' => '/flygenring.net/i'],
+    ['from' => '/@flygenring\.net/i'],
+    ['from' => '/@facebookmail\.com/i'],
+    ['from' => '/@em\.blizzard\.com/i'],
 ];
 
 $points = [];
@@ -155,10 +210,23 @@ function isRecruiterSpam($rules, Message $message)
 {
     $sum = 0;
     file_put_contents("../logs/spam.log", "### SpamCheck: ###\nSubject: " . $message->getSubject() . "\n", FILE_APPEND);
+        
+    $msgBody = $message->getMessageBody();
+    $msgBody = str_replace("&#230;", "æ", $msgBody);
+    $msgBody = str_replace("&#198;", "Æ", $msgBody);
+    $msgBody = str_replace("&#248;", "ø", $msgBody);
+    $msgBody = str_replace("&#216;", "Ø", $msgBody);
+    $msgBody = str_replace("&#229;", "å", $msgBody);
+    $msgBody = str_replace("&#197;", "Å", $msgBody);
+    
+    //file_put_contents("../logs/spam.log", $message->getMessageBody() . "\n", FILE_APPEND);
+    //file_put_contents("../logs/spam.log", $msgBody . "\n", FILE_APPEND);
+    
     foreach ($rules as $rule) {
         if (isset($rule['contains'])) {
             if (preg_match($rule['contains'], $message->getSubject())
-                || preg_match($rule['contains'], $message->getMessageBody())
+                || preg_match($rule['contains'], $msgBody)
+                //|| preg_match($rule['contains'], $message->getMessageBody())
             ) {
                 $sum += $rule['points'];
                 file_put_contents("../logs/spam.log", "Rule (" . $rule['points'] . "): " . $rule['contains'] . " (CONTAIN)\n", FILE_APPEND);
@@ -168,7 +236,7 @@ function isRecruiterSpam($rules, Message $message)
                 if (preg_match($rule['from'], $message->getOverview()->from)
                 ) {
                     $sum += $rule['points'];
-                    file_put_contents("../logs/spam.log", "Rule (" . $rule['points'] . "): " . $rule['contains'] . " (FROM)\n", FILE_APPEND);
+                    file_put_contents("../logs/spam.log", "Rule (" . $rule['points'] . "): " . $rule['from'] . " (FROM)\n", FILE_APPEND);
                 }
             }
         }
@@ -195,7 +263,7 @@ function isWhitelisted($rules, Message $message) {
             if (isset($rule['from'])) {
                 if (preg_match($rule['from'], $message->getOverview()->from)
                 ) {
-                    file_put_contents("../logs/spam.log", "### Whitelist: ###\nSubject: " . $message->getSubject() . "\nOn from-rule: " . $rule['contains'] . "\n\n", FILE_APPEND);
+                    file_put_contents("../logs/spam.log", "### Whitelist: ###\nSubject: " . $message->getSubject() . "\nOn from-rule: " . $rule['from'] . "\n\n", FILE_APPEND);
                     return true;
                 }
             }
