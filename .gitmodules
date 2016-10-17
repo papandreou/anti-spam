@@ -1,0 +1,6 @@
+[submodule "vendor/tedivm/fetch"]
+	path = vendor/tedivm/fetch
+	url = https://github.com/tedious/Fetch.git
+[submodule "vendor/swiftmailer/swiftmailer"]
+	path = vendor/swiftmailer/swiftmailer
+	url = https://github.com/swiftmailer/swiftmailer.git
