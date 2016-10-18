@@ -4,3 +4,9 @@
 [submodule "vendor/swiftmailer/swiftmailer"]
 	path = vendor/swiftmailer/swiftmailer
 	url = https://github.com/swiftmailer/swiftmailer.git
+[submodule "vendor/symfony/console/Symfony/Component/Console"]
+	path = vendor/symfony/console/Symfony/Component/Console
+	url = https://github.com/symfony/console
+[submodule "vendor/symfony/process/Symfony/Component/Process"]
+	path = vendor/symfony/process/Symfony/Component/Process
+	url = https://github.com/symfony/process
